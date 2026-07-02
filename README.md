@@ -4,33 +4,54 @@ A scalable university campus network designed and simulated using Cisco Packet T
 
 ## Project Overview
 
-This project represents a university network connecting multiple faculties:
+This project represents a university campus network that connects multiple faculties through a structured and hierarchical network design.
+
+The connected faculties include:
 
 - Faculty of Computer Science
 - Faculty of Engineering
 - Faculty of Science
 - Faculty of Business Information Systems
 
-Each faculty has its own network segment, switches, and PC labs. All faculties are connected through a central core network to support organized communication and future expansion.
+Each faculty contains multiple PC labs connected through switches. All faculties are connected to a central core network to enable organized communication between different network segments.
 
-## Network Design
+## Network Topology
 
-The network follows a hierarchical topology:
+The network follows a hierarchical topology consisting of:
 
-- Core Network Layer
-- Faculty / Floor Switches
+- Core Switch / Core Network
+- Faculty Switches
+- Floor Switches
 - Lab Switches
-- End Devices (PCs)
+- End Devices such as PCs
 
-Each faculty follows the same structure:
+Each faculty follows the same network structure:
 
-1. PCs are connected to lab switches.
-2. Lab switches are connected to the faculty switch.
-3. Faculty switches are connected to the core network.
+1. PCs are connected to Lab Switches.
+2. Lab Switches are connected to the Faculty or Floor Switch.
+3. Faculty Switches are connected to the Core Network.
+4. The Core Network connects all faculties together.
 
-## IP Addressing
+This design makes the network organized, scalable, and easier to manage.
 
-Each building/faculty uses a separate Class C private subnet:
+## VLAN Configuration
+
+VLANs were implemented to logically separate the university network.
+
+Each faculty was assigned to its own VLAN to improve security, traffic management, and network organization.
+
+- Faculty of Computer Science VLAN
+- Faculty of Engineering VLAN
+- Faculty of Science VLAN
+- Faculty of Business Information Systems VLAN
+
+Using VLANs allows devices in each faculty to communicate within their own network segment while reducing unnecessary traffic between faculties.
+
+Communication between different VLANs is managed through the core network using inter-VLAN routing.
+
+## IP Addressing Scheme
+
+Each faculty or building uses a separate private Class C subnet.
 
 | Building / Faculty | Network Address | Subnet Mask |
 |---|---|---|
@@ -39,31 +60,46 @@ Each building/faculty uses a separate Class C private subnet:
 | Building 3 | 192.168.3.0/24 | 255.255.255.0 |
 | Building 4 | 192.168.4.0/24 | 255.255.255.0 |
 
+Each subnet supports up to 254 usable host addresses.
+
 ## Features
 
-- Separate subnet for each faculty
-- Multiple PC labs connected through switches
-- Core network connecting all faculties
-- Organized hierarchical network topology
+- Hierarchical university campus network design
+- Multiple faculties connected through a central core network
+- VLAN implementation for logical separation
+- Separate VLAN and subnet for each faculty
+- Multiple PC labs connected through access switches
 - Manual IP address configuration
+- Default gateway configuration for PCs
+- Inter-VLAN communication through the core network
+- Improved network organization and traffic management
+- Scalable design for future expansion
 - Connectivity testing using ping commands
-- Scalable design that can support future expansion
+
+## Testing and Verification
+
+The network was tested using the following methods:
+
+- Ping between PCs in the same VLAN
+- Ping from PCs to their default gateway
+- Testing communication between different VLANs
+- Verifying IP address configuration on end devices
+- Checking the connectivity between faculties through the core network
+
+Successful ping results confirmed that the network configuration was working correctly.
 
 ## Tools Used
 
 - Cisco Packet Tracer
-- Networking Fundamentals
+- VLAN Configuration
 - IP Addressing and Subnetting
+- Switching and Routing Fundamentals
 
-## Testing
+## Course
 
-The network was tested by:
-
-- Pinging devices within the same subnet
-- Pinging default gateways
-- Verifying IP configurations on PCs
-- Checking connectivity between different network segments
+Introduction to Computer Networks  
+CSAI 252
 
 ## Team Project
 
-Developed as part of the **Introduction to Computer Networks** course.
+Developed as a university team project.
