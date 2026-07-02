@@ -99,7 +99,3 @@ Successful ping results confirmed that the network configuration was working cor
 
 Introduction to Computer Networks  
 CSAI 252
-
-## Team Project
-
-Developed as a university team project.
